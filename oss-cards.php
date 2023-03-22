@@ -13,7 +13,7 @@ define('OSS_URL_INC', plugin_dir_url(__FILE__) . 'inc/');
 define('OSS_ASSETS_URL', plugin_dir_url(__FILE__) . 'assets/');
 
 class Oss_Cards {
-    //magic function (triggered on initialization)
+
     public function __construct() {
         add_action( 'plugins_loaded', array($this, 'osscards_load_textdomain') ); //add plugin textdomain
         add_action('init', array($this, 'register_cards_content_type')); //register cards content type
@@ -85,8 +85,7 @@ class Oss_Cards {
             'default' //priority
         );
     }
-
-
+    
     //display function used for our cards meta box*/
     public function display_card_metabox($post)
     {
