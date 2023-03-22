@@ -1,0 +1,344 @@
+# Copyright (C) 2023 OssKit.Net
+# This file is distributed under the GNU General Public License v3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: OSS Cards Plugin\n"
+"Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
+"POT-Creation-Date: 2023-03-03 18:36+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alex Green <contact@osskit.net>\n"
+"Language-Team: OSS Kit Team <contact@osskit.net>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: oss-cards.php:104
+msgid "Copy To Clipboard"
+msgstr ""
+
+#: oss-cards.php:105
+msgid "Data Is Copied"
+msgstr ""
+
+#: inc/oss_cards_widget.php:51
+msgid "Select Cards:"
+msgstr ""
+
+#: inc/oss_cards_widget.php:60
+msgid "You have no cards yet, first create any"
+msgstr ""
+
+#: inc/cards-preview.php:3
+msgid "Card Type"
+msgstr ""
+
+#: inc/cards-preview.php:10
+msgid "Layout"
+msgstr ""
+
+#: inc/cards-preview.php:17
+msgid "Items in Row"
+msgstr ""
+
+#: inc/cards-preview.php:26 inc/vue.php:102
+msgid "Full Width"
+msgstr ""
+
+#: inc/cards-preview.php:33
+msgid "Refresh"
+msgstr ""
+
+#: inc/cards-preview.php:37
+msgid ""
+"You have no cards yet.  Fill the form on left and click button - Add Item"
+msgstr ""
+
+#: inc/cards-preview.php:38
+msgid "You can add as many cards as you wish, and edit or delete them then"
+msgstr ""
+
+#: inc/cards-preview.php:101
+msgid ""
+"You have selected an Animation Premium. It displays in backend as a Demo, "
+"but will be replaced in frontend with with default."
+msgstr ""
+
+#: inc/cards-preview.php:101
+msgid "To use it get version Premiun , thus you will help further development"
+msgstr ""
+
+#: inc/cards-preview.php:113
+msgid ""
+"You have selected a Card Style Premium. It displays in backend as a Demo, "
+"but will be replaced in frontend with default."
+msgstr ""
+
+#: inc/cards-preview.php:114
+msgid "To use it get version Premiun , thus you will help further development."
+msgstr ""
+
+#: inc/cards-preview.php:120
+msgid "Notes"
+msgstr ""
+
+#: inc/cards-preview.php:122
+msgid ""
+"Preview can slightly differ from frontend because of area width of preview "
+"here and areas where you going to use. "
+msgstr ""
+
+#: inc/cards-preview.php:129
+msgid "Hints & Help"
+msgstr ""
+
+#: inc/cards-preview.php:132
+msgid "Edit Card"
+msgstr ""
+
+#: inc/cards-preview.php:134
+msgid ""
+"To edit a card not necessary click icon edit, whole card is edit trigger. "
+"Icon marked just you know that you can edit card"
+msgstr ""
+
+#: inc/cards-preview.php:140
+msgid "External Images URL"
+msgstr ""
+
+#: inc/cards-preview.php:142
+msgid ""
+"You can use external images as well. For this you no need to use media "
+"library, just enter its URL in the field(see screenshot)"
+msgstr ""
+
+#: inc/cards-preview.php:143
+msgid ""
+"Remember - Some can have copyright, use your own from another sites or "
+"images under necessary licences"
+msgstr ""
+
+#: inc/cards-preview.php:150
+msgid "Widget usage"
+msgstr ""
+
+#: inc/cards-preview.php:152
+msgid "You can use widget to display your Cards as well."
+msgstr ""
+
+#: inc/cards-preview.php:153
+msgid "Use it if your theme has widgets in the necessary areas."
+msgstr ""
+
+#: inc/cards-preview.php:154
+msgid "Go to widgets find OSS Cards Widget, add and select in dropdown."
+msgstr ""
+
+#: inc/cards-preview.php:155
+msgid ""
+"This method is useful if you want to use cards outside content area, for "
+"example in sidebar, footer etc"
+msgstr ""
+
+#: inc/cards-preview.php:164
+msgid "Shortcode Is Copied"
+msgstr ""
+
+#: inc/sidebar.php:16
+msgid "Add Card"
+msgstr ""
+
+#: inc/sidebar.php:19 inc/sidebar.php:234
+msgid "Image"
+msgstr ""
+
+#: inc/sidebar.php:40 inc/sidebar.php:256
+msgid "Title"
+msgstr ""
+
+#: inc/sidebar.php:43 inc/sidebar.php:259
+msgid "Subtitle"
+msgstr ""
+
+#: inc/sidebar.php:46 inc/sidebar.php:262
+msgid "Description"
+msgstr ""
+
+#: inc/sidebar.php:48 inc/sidebar.php:264
+msgid "Link Url"
+msgstr ""
+
+#: inc/sidebar.php:49 inc/sidebar.php:265
+msgid "Leave empty if no need"
+msgstr ""
+
+#: inc/sidebar.php:51 inc/sidebar.php:267
+msgid "Link Text"
+msgstr ""
+
+#: inc/sidebar.php:58
+msgid "Card Style"
+msgstr ""
+
+#: inc/sidebar.php:59
+msgid "Animation"
+msgstr ""
+
+#: inc/sidebar.php:60
+msgid ""
+"Some animation may display not correct in backend but they all are correct "
+"in frontent"
+msgstr ""
+
+#: inc/sidebar.php:78
+msgid "Media Style(hover)"
+msgstr ""
+
+#: inc/sidebar.php:79
+msgid ""
+"Not every style can be good for your cards, it depends on  ratio, size and "
+"title/subtitle length"
+msgstr ""
+
+#: inc/sidebar.php:90
+msgid "Top Background"
+msgstr ""
+
+#: inc/sidebar.php:96
+msgid "Image Ratio"
+msgstr ""
+
+#: inc/sidebar.php:108
+msgid "Title style"
+msgstr ""
+
+#: inc/sidebar.php:124
+msgid "Border/Shadow"
+msgstr ""
+
+#: inc/sidebar.php:140
+msgid "Border Color"
+msgstr ""
+
+#: inc/sidebar.php:145
+msgid "Title Color"
+msgstr ""
+
+#: inc/sidebar.php:149
+msgid "Background Color"
+msgstr ""
+
+#: inc/sidebar.php:153
+msgid "Font color"
+msgstr ""
+
+#: inc/sidebar.php:157
+msgid "Link Type"
+msgstr ""
+
+#: inc/sidebar.php:164
+msgid "Button Color"
+msgstr ""
+
+#: inc/sidebar.php:170
+msgid "Link Color"
+msgstr ""
+
+#: inc/sidebar.php:175
+msgid "Text Align"
+msgstr ""
+
+#: inc/sidebar.php:185
+msgid "Icon Box Settings"
+msgstr ""
+
+#: inc/sidebar.php:186
+msgid "Icon Size"
+msgstr ""
+
+#: inc/sidebar.php:188 inc/vue.php:90
+msgid "Icon Style"
+msgstr ""
+
+#: inc/sidebar.php:195
+msgid ""
+"Note: Using this style don not use wide or non symmetrical icons or it will "
+"be used not balanced or even outside the circle"
+msgstr ""
+
+#: inc/sidebar.php:196
+msgid "Icon Background"
+msgstr ""
+
+#: inc/sidebar.php:200
+msgid "Icon Color"
+msgstr ""
+
+#: inc/sidebar.php:208
+msgid "Data Code"
+msgstr ""
+
+#: inc/sidebar.php:209
+msgid "Data for export, or for debugging(send to support)"
+msgstr ""
+
+#: inc/sidebar.php:214
+msgid "If sidebar not displaying click icon cog top right"
+msgstr ""
+
+#: inc/sidebar.php:219 inc/vue.php:114
+msgid "Hints"
+msgstr ""
+
+#: inc/sidebar.php:220
+msgid "For more help Visit support forum"
+msgstr ""
+
+#: inc/sidebar.php:231
+msgid "Edit"
+msgstr ""
+
+#: inc/sidebar.php:272
+msgid "Are you sure you want to leave page?"
+msgstr ""
+
+#: inc/sidebar.php:274
+msgid "All not saved changes will be lost!"
+msgstr ""
+
+#: inc/sidebar.php:275
+msgid "Cancel"
+msgstr ""
+
+#: inc/sidebar.php:276
+msgid "Leave"
+msgstr ""
+
+#: inc/vue.php:78
+msgid "Add"
+msgstr ""
+
+#: inc/vue.php:84
+msgid "Style"
+msgstr ""
+
+#: inc/vue.php:96
+msgid "Export"
+msgstr ""
+
+#: inc/vue.php:108
+msgid "Sidebar"
+msgstr ""
+
+#: inc/vue.php:120
+msgid "Back"
+msgstr ""
