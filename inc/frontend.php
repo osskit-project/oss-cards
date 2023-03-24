@@ -1,8 +1,4 @@
 <?php
-/*
- Variables with suffix '_esc' are the variables are assigned a value from the database and escape function is used
- without suffix are just service ones without any data of DB
- */
 //get items and parameters
 if (!empty($data)) {
     $items = $data['items'];//card items
