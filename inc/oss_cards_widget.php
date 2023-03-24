@@ -25,6 +25,7 @@ class OSS_Cards_Widget extends WP_Widget {
 
             // Output the widget markup
             echo $args['before_widget'];
+            //$cards_output is a method of main class which just calls inc/frontend.php where all echos escaped
             echo $cards_output;
             echo $args['after_widget'];
         }
