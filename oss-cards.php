@@ -9,7 +9,6 @@ Author URI:  http://osskit.net/about/
 License:     GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
-define('OSS_URL_INC', plugin_dir_url(__FILE__) . 'inc/');
 define('OSS_ASSETS_URL', plugin_dir_url(__FILE__) . 'assets/');
 
 class Oss_Cards {
@@ -23,6 +22,7 @@ class Oss_Cards {
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts_and_styles')); //admin scripts and styles
         add_action('wp_enqueue_scripts', array($this, 'enqueue_public_scripts_and_styles')); //public scripts and styles
         add_filter('the_content', array($this, 'prepend_cards_meta')); //gets our meta data and dispayed it before the content
+        add_filter( 'script_loader_tag', array($this, 'add_type_attribute'), 10, 3 );
         register_activation_hook(__FILE__, array($this, 'plugin_activate')); //activate hook
         register_deactivation_hook(__FILE__, array($this, 'plugin_deactivate')); //deactivate hook
     }
@@ -36,7 +36,7 @@ class Oss_Cards {
     public function register_cards_content_type() {
         //Labels for post type
         $labels = array(
-            'name' => 'OSS Card',
+            'name' => 'OSS Cards',
             'singular_name' => 'OSS Card',
             'menu_name' => 'OSS Cards',
             'name_admin_bar' => 'OSS Card',
@@ -114,10 +114,9 @@ class Oss_Cards {
                 <textarea id="oss_cards_data" name="oss_cards_data" cols="100" rows="10">{{toString()}}</textarea>
             </div>
             <?php
-            include 'inc/cards-preview.php';
+            include 'inc/preview-cards.php';
             include 'inc/sidebar.php';
             echo '</div>'; //end app
-            include 'inc/vue.php';
             //after main form elementst hook
             do_action('oss_cards_admin_form_end');
             ?>
@@ -144,14 +143,14 @@ class Oss_Cards {
     {
         global $post, $post_type;
         //display meta only on our cardss (and if its a single cards)
-        if ($post_type == 'oss_cards' && is_singular('oss_cards')) {
+        if ($post_type == 'oss_cards') {
             //collect variables
             $oss_cards_data = get_post_meta($post->ID, 'oss_cards_data', true);
             //display
             if ( ! empty($oss_cards_data)) {
                 ob_start();
                 $data = json_decode($oss_cards_data, true);
-                include 'inc/frontend.php';
+                include 'inc/render-cards.php';
                 $cards = ob_get_clean();
                 return $cards . $content;
             }
@@ -193,7 +192,7 @@ class Oss_Cards {
             if ( ! empty($oss_cards_data) && get_post_status( $cards_id ) === 'publish') {
                 ob_start();
                 $data = json_decode($oss_cards_data, true);
-                include 'inc/frontend.php';
+                include 'inc/render-cards.php';
                 $card_object = ob_get_clean();
             }
         }
@@ -225,22 +224,45 @@ class Oss_Cards {
         //save hook
         do_action('oss_cards_admin_save', $post_id);
     }
+ 
+    //add tag module to main js script
+    public function add_type_attribute($tag, $handle, $src) {
+        // if not your script, do nothing and return original $tag
+        if ( 'osscards-app' !== $handle ) {
+            return $tag;
+        }
+        // remove the current type if there is one
+        $tag = preg_replace( '/ type=([\'"])[^\'"]+\1/', '', $tag ); 
+
+        // add type
+        $tag = str_replace( 'src=', 'type="module" src=', $tag );
+
+        return $tag;
+    }
 
     //enqueus scripts and stles on the back end
     public function enqueue_admin_scripts_and_styles() {
-        wp_enqueue_style('icons-fa', 'https://use.fontawesome.com/releases/v5.15.4/css/all.css', array(), '202302');//CDN
-        // wp_enqueue_style('icons-fa', plugin_dir_url(__FILE__) . 'assets/css/all.css', array(), '202302');//TODO server
+        wp_enqueue_style('icons-fa', 'https://use.fontawesome.com/releases/v5.15.4/css/all.css', array(), '202302');
         wp_enqueue_style('omi-admin-style', plugin_dir_url(__FILE__) . 'assets/css/admin.css', array(), '202302');
-        wp_enqueue_style('uikit-css', plugin_dir_url(__FILE__) . 'assets/css/uikit.min.css', array(), '202302');
-        wp_enqueue_style('omi-frontend-style', plugin_dir_url(__FILE__) . 'assets/css/style.css');
         wp_enqueue_script('omi-admin', plugin_dir_url(__FILE__) . 'assets/js/admin.js', array('jquery'), '1.0');
-        wp_enqueue_media();//requires for images
-        wp_enqueue_script('uikit-js', plugin_dir_url(__FILE__) . 'assets/js/uikit.min.js', array(), '3.0');
-        wp_enqueue_script('omi-vue', plugin_dir_url(__FILE__) . 'assets/js/vue.js', array(), '2.0');
-        wp_enqueue_script('omi-draggable', plugin_dir_url(__FILE__) . 'assets/js/vuedraggable.min.js', array(), '202302');
-        wp_enqueue_script('omi-sortable', plugin_dir_url(__FILE__) . 'assets/js/Sortable.min.js', array(), '2.0');
-        wp_enqueue_script('omi-vue-color', plugin_dir_url(__FILE__) . 'assets/js/vue-color.min.js', array(), '2.0');
-        wp_enqueue_script('omi-color', plugin_dir_url(__FILE__) . 'assets/js/color.js', array(), '2.0');
+
+        //calls if post type is oss_cards only and edit or new page
+        if ( get_current_screen()->base == 'post' && get_post_type() ==='oss_cards' ) {
+            wp_enqueue_style('omi-frontend-style', plugin_dir_url(__FILE__) . 'assets/css/style.css');
+            wp_enqueue_style('uikit-css', plugin_dir_url(__FILE__) . 'assets/css/uikit.min.css', array(), '202302');
+            wp_enqueue_media();//requires for images
+            wp_enqueue_script('uikit-js', plugin_dir_url(__FILE__) . 'assets/js/uikit.min.js', array(), '3.0');
+            wp_enqueue_script('omi-vue', plugin_dir_url(__FILE__) . 'assets/js/vue.js', array(), '2.0');
+            wp_enqueue_script('omi-vue-color', plugin_dir_url(__FILE__) . 'assets/js/vue-color.min.js', array(), '2.0');
+            wp_enqueue_script('omi-color', plugin_dir_url(__FILE__) . 'assets/js/color.js', array(), '2.0');           
+            //main script as type module & localize_script
+            wp_enqueue_script('osscards-app', plugin_dir_url(__FILE__) . 'assets/js/app.js', array(), null, true);
+            global $post, $post_type;        
+            $oss_cards_data = get_post_meta( $post->ID, 'oss_cards_data', true );
+            if ( $oss_cards_data ) {
+                wp_add_inline_script( 'osscards-app', 'const OSDATA = ' . wp_json_encode( $oss_cards_data ), 'before' );
+            }
+        }
     }
 
     //enqueues scripts and styled on the front end
