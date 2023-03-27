@@ -27,7 +27,7 @@
     </div>
     <div class="oss_shortcode_block">
         <span>Shortcode</span> 
-        <input class="osc_copy_shortcode" type="text" value="[oss_cards id=<?php echo $post->ID ?>]"> 
+        <input class="osc_copy_shortcode" type="text" value="[oss_cards id=<?php echo esc_attr( $post->ID ) ?>]"> 
         <i class="fas fa-copy osc_copy_shortcode_click"></i>   
     </div>
     <div class="osc_refresh" v-on:click="ratio()"><?php esc_html_e('Refresh', 'oss-cards') ?><i class="fas fa-redo-alt"></i>
